@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.primary-color {
+    /* color:#ffc600 */
+    color: #efb810;
+}
+
+.secondary-color {
+    /* color:#ffc600 */
+    color: #9e4230;
+}
+
+.heroImage {
+    background-image: url('/img/hoja-tabaco.jpg');
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;	
+  }
+

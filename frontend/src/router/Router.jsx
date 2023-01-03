@@ -6,6 +6,7 @@ import Products from "../components/pages/Products"
 import History from "../components/pages/History"
 import Store from "../components/pages/Store"
 import Contact from "../components/pages/Contact"
+import Product from "../components/pages/Product"
 
 
 const router = createBrowserRouter([
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
                 element:<Products/>
             },
             {
+                path: 'productos/:id',
+                element:<Product/>
+            },
+            {
                 path:'/historia',
                 element:<History/>,
             },
@@ -35,7 +40,31 @@ const router = createBrowserRouter([
                 element:<Contact/>
             }
         ],
+        
     }, 
+
+    {
+        path: "/admin",
+        element: <Admin />,
+        children: [
+          {
+            path: "/admin/ventas",
+            element: <Sales />,
+          },
+          {
+            path: "/admin/productos",
+            element: <Table />,
+          },
+          {
+            path: "/admin/productos/crear",
+            element: <Form />,
+          },
+          {
+            path: "/admin/productos/editar/:id",
+            element: <Form />,
+          },
+        ],
+      },
    
     
 ])

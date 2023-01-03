@@ -1,6 +1,7 @@
 import React from 'react'
 import CardComponent from '../organisms/Card'
-import App from '../templates/App'
+
+
 
 const products = () => {
   return (

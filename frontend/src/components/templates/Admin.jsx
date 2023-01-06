@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom"
-import AdminMenu from "../molecules/header/AdminMenu"
+import AdminMenu from "../molecules/AdminMenu"
 import MainHeader from "../organisms/MainHeader"
 
 const Admin = () => {

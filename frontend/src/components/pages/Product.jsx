@@ -12,17 +12,19 @@ const Product = () => {
     if (error) return <div>{error?.message}</div>
     
   return (
-    <div className='container'>
-        <div>
-        <img
-            className="object-scale-down w-full h-64"
-            src={`${API_URL}/${data.image_url}`}
-            alt="image"
+    <div className='container m-auto'>
+      <div className='flex'>
+          <div>
+            <img
+              className="object-scale-down w-full"
+              src={`${API_URL}/${data.image_url}`}
+              alt="image"
             />
-        </div>
-        <div>
-            <h1>{data.name}</h1>
-        </div>
+          </div>   
+          <div>
+              <h1>{data.name}</h1>
+          </div>
+      </div>
     </div>
   )
 }

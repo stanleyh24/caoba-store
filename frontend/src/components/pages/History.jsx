@@ -3,7 +3,7 @@ import React from 'react'
 const History = () => {
   return (
     <div className='flex flex-col items-center pb-12 pt-5'>
-      <img src="/img/Don-Julio.jpeg" alt="Don Julio" srcset=""  className='md:max-w-3xl'/>
+      <img src="/img/Don-Julio.jpeg" alt="Don Julio" className='md:max-w-3xl'/>
       <h1 className='text-3xl font-bold pt-2'>Don Julio Pérez González</h1>
       <span>Fundador de Caoba Cigars</span>
 

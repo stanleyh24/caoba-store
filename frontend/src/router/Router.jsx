@@ -11,6 +11,8 @@ import Product from "../components/pages/Product"
 import Sales from "../components/pages/admin/Sales"
 import Table from "../components/pages/admin/products/Table"
 import Form from "../components/pages/admin/products/Form"
+import Cart from "../components/pages/Cart"
+import Payment from "../components/pages/Payment"
 
 
 const router = createBrowserRouter([
@@ -42,7 +44,15 @@ const router = createBrowserRouter([
             {
                 path:'/contactos',
                 element:<Contact/>
-            }
+            },
+            {
+              path:'/cart',
+              element:<Cart/>
+            },
+            {
+              path:'/pago-exitoso',
+              element:<Payment/>
+            },
         ],
         
     }, 

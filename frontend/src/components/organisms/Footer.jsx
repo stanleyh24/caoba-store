@@ -2,10 +2,10 @@ import React from 'react'
 
 const Footer = () => {
   return (
-       <footer className="text-center lg:text-left bg-gray-200 text-gray-600">
+       <footer className="text-center lg:text-left bg-gray-200 text-gray-600 fixed left-0 bottom-0">
     <div className="flex justify-center items-center lg:justify-between p-3 border-b border-gray-300">
         <div className="mr-12 hidden lg:block">
-        <span>Get connected with us on social networks:</span>
+        <span>Conéctate con nosotras en las redes sociales:</span>
         </div>
         <div className="flex justify-center">
         <a href="#!"  className="mr-6 text-gray-600">
@@ -28,7 +28,7 @@ const Footer = () => {
         </a>
         </div>
     </div>
-    <div className="mx-6 text-center md:text-left mt-2">
+    <div className="mx-6 text-center md:text-left mt-1">
         <div className="grid grid-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         <div className="">
             <h6 className="
@@ -51,34 +51,30 @@ const Footer = () => {
             Products
             </h6>
             <p className="mb-2">
-            <a href="#!" className="text-gray-600">Angular</a>
+            <a href="#!" className="text-gray-600">Caoba Premium</a>
             </p>
             <p className="mb-2">
-            <a href="#!" className="text-gray-600">React</a>
+            <a href="#!" className="text-gray-600">Grandes Reservas</a>
             </p>
             <p className="mb-2">
-            <a href="#!" className="text-gray-600">Vue</a>
+            <a href="#!" className="text-gray-600">Origen Dominicano</a>
             </p>
-            <p>
-            <a href="#!" className="text-gray-600">Laravel</a>
-            </p>
+            
         </div>
         <div className="">
             <h6 className="uppercase font-semibold mb-2 flex justify-center md:justify-start">
             Useful links
             </h6>
             <p className="mb-2">
-            <a href="#!" className="text-gray-600">Pricing</a>
+            <a href="#!" className="text-gray-600">Productos</a>
             </p>
             <p className="mb-2">
-            <a href="#!" className="text-gray-600">Settings</a>
+            <a href="#!" className="text-gray-600">Tienda</a>
             </p>
             <p className="mb-2">
-            <a href="#!" className="text-gray-600">Orders</a>
+            <a href="#!" className="text-gray-600">Historia</a>
             </p>
-            <p>
-            <a href="#!" className="text-gray-600">Help</a>
-            </p>
+            
         </div>
         <div className="">
             <h6 className="uppercase font-semibold mb-2 flex justify-center md:justify-start">
@@ -114,22 +110,13 @@ const Footer = () => {
             +1 (809) 685-6425
 
             </p>
-            <p className="flex items-center justify-center md:justify-start">
-            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="print"
-                className="w-4 mr-4" role="img" xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 512 512">
-                <path fill="currentColor"
-                d="M448 192V77.25c0-8.49-3.37-16.62-9.37-22.63L393.37 9.37c-6-6-14.14-9.37-22.63-9.37H96C78.33 0 64 14.33 64 32v160c-35.35 0-64 28.65-64 64v112c0 8.84 7.16 16 16 16h48v96c0 17.67 14.33 32 32 32h320c17.67 0 32-14.33 32-32v-96h48c8.84 0 16-7.16 16-16V256c0-35.35-28.65-64-64-64zm-64 256H128v-96h256v96zm0-224H128V64h192v48c0 8.84 7.16 16 16 16h48v96zm48 72c-13.25 0-24-10.75-24-24 0-13.26 10.75-24 24-24s24 10.74 24 24c0 13.25-10.75 24-24 24z">
-                </path>
-            </svg>
-            + 01 234 567 89
-            </p>
+            
         </div>
         </div>
     </div>
-    <div className="text-center p-3 bg-gray-200">
-        <span>© 2021 Copyright:</span>
-        <a className="text-gray-600 font-semibold" href="https://tailwind-elements.com/">Tailwind Elements</a>
+    <div className="text-center p-2 bg-gray-200">
+        <span>© 2022 Copyright:</span>
+        <a className="text-gray-600 font-semibold" href="">Caoba Cigars</a>
     </div>
 </footer>
 

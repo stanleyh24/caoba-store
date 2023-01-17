@@ -9,9 +9,9 @@ export default function CardComponent({img,title,content,children}) {
                 alt="image"
             />
             <div className="p-4">
-                <h4 className="text-xl font-semibold tracking-tight primary-color">
+                {/* <h4 className="text-xl font-semibold tracking-tight primary-color">
                     {title}
-                </h4>
+                </h4> */}
                 <p className="mb-2 leading-normal">
                     {content}
                 </p>

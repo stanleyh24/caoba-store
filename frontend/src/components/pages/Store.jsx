@@ -26,7 +26,7 @@ const Store = () => {
               content='Cigarro medio. Tripa y capote dominicano y importada desde Connecticut.'
             >
               <Link to={`/productos/${product.id}`}>
-                    <h3 className="text-xl font-semibold tracking-tight text-gray-900 mb-2">
+                    <h3 className="text-xl font-semibold tracking-tight text-gray-900 mb-2 primary-color">
                         {product.name}
                     </h3>
               </Link>

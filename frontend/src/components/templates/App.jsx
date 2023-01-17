@@ -7,10 +7,10 @@ function App() {
   return (
     <div className="bg-gray-100 h-full">
       <Nav/>
-      <div className='pt-16 w-full'>
+      <div className='pt-16 w-full h-full'>
         <Outlet />
       </div>
-      <Footer/>
+    {/* <Footer/> */}
       
     </div>
   )

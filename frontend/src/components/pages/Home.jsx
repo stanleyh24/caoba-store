@@ -28,7 +28,7 @@ function Home() {
       <div className=" w-full bg-white pt-2">
         <div className="flex justify-center h-72 container my-8 ">
           <div className="flex w-1/2 justify-end">
-            <img className="h-72 " src="img/hechos_a_mano.jpg" alt="Hechos a Mano" srcset="" />
+            <img className="h-72 " src="img/hechos_a_mano.jpg" alt="Hechos a Mano" />
           </div>
           <div className="flex w-1/2 justify-start flex-col px-5">
             <div className="mr-8">

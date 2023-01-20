@@ -5,7 +5,7 @@ import Nav from "../organisms/Nav"
 
 function App() {
   return (
-    <div className="bg-gray-100 h-full">
+    <div className="bg-gray-100 h-screen">
       <Nav/>
       <div className='pt-16 w-full h-full'>
         <Outlet />

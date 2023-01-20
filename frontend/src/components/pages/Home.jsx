@@ -1,31 +1,44 @@
-import CardComponent from "../organisms/Card"
+import { Carousel } from "flowbite-react"
+import useFetch from "../../hooks/useFeth"
+import { API_URL } from "../../constants/env"
 import Hero from "../organisms/Hero"
-import App from "../templates/App"
+import { Link } from "react-router-dom";
+
+
 
 function Home() {
+  const { data, loading, error } = useFetch(`products`)
+  
   return (
     <>
       <Hero/>
 
-      <div className='flex pt-2 my-4 flex-wrap gap-2  place-content-evenly'>
-        <CardComponent
-          img='/img/Quisqueyanos.png'
-          title="Quisqueyanos"
-          content="Cigarro con fortaleza media, sabor muy agradable con tripa, capote dominicano y capa Yamasa."
-        />
-        <CardComponent
-           img='/img/Oro.png'
-           title="Caoba Oro"
-           content="Cigarro suave a medio, combinación de tripa y capote dominicano."
-        />
-        <CardComponent
-           img='/img/Origen_Dominicano.png'
-           title="Origen Dominicano"
-           content="Cigarro fuerte con gran sabor reserva especial y selección del mejor tabaco de República Dominicana. Con tripa y capote dominicano y capa San Andrés."
-        />
-      </div>
+      <section className="h-56 sm:h-64 xl:h-80 2xl:h-96">
+        <Carousel>
+          {data?.map((prod) =>(
+            <div className="flex justify-center" key={prod.id}>
+            <div className="w-96">
+              <img
+                className="object-scale-down w-full h-96"
+                src={`${API_URL}/${prod.image_url}`}
+                alt="image"
+              />
+            </div>
+            <div className="flex flex-col">
+              <h1 className="text-4xl font-bold primary-color my-8">{prod.name}</h1>
+              <p className="text-lg max-w-xl ">{prod.description}</p>
+              <Link to={`/productos/${prod.id}`}>
+                      <button className="text-xl font-semibold tracking-tight mt-8 p-2 primary-color border-2 border-current rounded-md">
+                        Comprar
+                      </button>
+                </Link>
+            </div>
+           </div>
+          ))} 
+        </Carousel>
+      </section>
 
-      <div className=" w-full bg-white pt-2">
+      <section className=" w-full bg-white pt-2">
         <div className="flex justify-center h-72 container my-8 ">
           <div className="flex w-1/2 justify-end">
             <img className="h-72 " src="img/hechos_a_mano.jpg" alt="Hechos a Mano" />
@@ -37,7 +50,7 @@ function Home() {
             </div>
           </div>
         </div>
-      </div>
+      </section>
       
     </>
      

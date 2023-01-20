@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from "react-router-dom";
 import {useCartContext} from '../../context/CartContext'
+import { FaShoppingCart } from 'react-icons/fa';
 
 const Nav = () => {
   const cart = useCartContext();
@@ -10,8 +11,6 @@ const Nav = () => {
     {name:'Tienda', link:'/tienda'},
     {name:'Historia', link:'/historia'},
     {name:'Contactos', link:'/contactos'},
-    {name:'Cart', link:'/cart'},
-
   ]
 
   let [open,setOpen]= useState(false)
@@ -36,7 +35,15 @@ const Nav = () => {
             </li>
           ))
          }
-         ({cart.getNumberOfItems()})
+         <li className='md:ml-8 text-xl md:my-0 my-7'>
+          <Link to='/cart' className='flex items-center'>
+            <FaShoppingCart/>
+            <p className='primary-color pl-1'>
+            {cart.getNumberOfItems()}
+            </p>
+          </Link>
+         </li>
+         
         </ul>
       </div>
     </nav>

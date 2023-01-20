@@ -1,6 +1,4 @@
 import React from 'react'
-import axios from "axios"
-import { useState, useEffect } from "react"
 import useFetch from "../../hooks/useFeth"
 import { Link } from "react-router-dom";
 import { API_URL } from "../../constants/env"
@@ -23,7 +21,7 @@ const Store = () => {
               key={product.id}
               img= {`${API_URL}/${product.image_url}`}
               title={product.name}
-              content='Cigarro medio. Tripa y capote dominicano y importada desde Connecticut.'
+              content={product.description}
             >
               <Link to={`/productos/${product.id}`}>
                     <h3 className="text-xl font-semibold tracking-tight text-gray-900 mb-2 primary-color">

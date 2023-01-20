@@ -57,7 +57,7 @@ const router = createBrowserRouter([
         
     }, 
 
-    {
+ /*    {
         path: "/admin",
         element: <Admin />,
         children: [
@@ -78,7 +78,7 @@ const router = createBrowserRouter([
             element: <Form />,
           },
         ],
-      },
+      }, */
    
     
 ])

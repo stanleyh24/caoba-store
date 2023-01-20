@@ -13,9 +13,13 @@
 }
 
 .heroImage {
-    background-image: url('/img/hoja-tabaco.jpg');
+    background-image: url('/img/tabaco.jpg');
     background-size:cover;
     background-position:center;
     background-repeat:no-repeat;	
-  }
+}
+
+
+
+
 

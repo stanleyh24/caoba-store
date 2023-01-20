@@ -7,6 +7,7 @@ const CartContext = createContext({
     deleteItemToCart: () => {},
     getNumberOfItems: () => {},
     getTotalOfCart: () => {},
+    clearCart: () => {},
 
 });
 
@@ -52,9 +53,26 @@ export default function StateWrapper({children}) {
     function handlegetTotalOfCart() {
         let total = 0
         for (let i = 0; i < items.length; i++){
-            total += items[i].variant.price
+            total += items[i].variant.price * items[i].qty
         }
         return total.toFixed(2)
+    }
+
+    function handleDeleteItemToCart(item) {
+        let temp = [...items]
+        const found = temp.find(prod => prod.variant.id === item.variant.id);
+        if (found) {
+            if (found.qty > 1) {
+                found.qty--;
+            } else {
+                temp = temp.filter(prod => prod.variant.id !== item.variant.id)
+            }
+        }
+        setItems(temp)
+    }
+
+    function handleClearCart() {
+        setItems([])
     }
 
     return(
@@ -63,6 +81,8 @@ export default function StateWrapper({children}) {
             addItemToCart: handleAddItemToCart,
             getNumberOfItems: handleNumberOfItems,
             getTotalOfCart: handlegetTotalOfCart,
+            deleteItemToCart:handleDeleteItemToCart,
+            clearCart:handleClearCart,
         }}>
             {children}
         </CartContext.Provider>

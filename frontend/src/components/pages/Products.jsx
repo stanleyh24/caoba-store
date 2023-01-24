@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useCartContext } from '../../context/CartContext'
 import CardComponent from '../organisms/Card'
 
 
 
 const products = () => {
+  const cart = useCartContext()
+
+
   return (
       <div className='container mx-auto px-6'>
         <div>

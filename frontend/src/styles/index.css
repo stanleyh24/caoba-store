@@ -19,6 +19,10 @@
     background-repeat:no-repeat;	
 }
 
+.heroImage-text {
+    display: grid;
+    background-color: hsla(218, 3%, 94%, 0.2);
+}
 
 
 

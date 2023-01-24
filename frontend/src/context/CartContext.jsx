@@ -1,5 +1,4 @@
 import { createContext, useState, useContext } from "react";
-//import CartReducer from "./CartReducer";
 
 const CartContext = createContext({
     items: [],
@@ -11,28 +10,10 @@ const CartContext = createContext({
 
 });
 
-/* const CartProvider = ({children}) => {
-    const initialState = {
-        cart:[]
-    }
-    const [state, dispatch] = useReducer(CartReducer, initialState)
-    
-    return(
-        <CartContext.Provider value={{state, dispatch}}>
-            {children}
-        </CartContext.Provider>
-    )
-}
-
-
-export {CartContext, CartProvider}
-
- */
-
 
 export default function StateWrapper({children}) {
     const [items, setItems] = useState([])
-
+   
     function handleAddItemToCart(item) {  
         const temp = [...items]
         const found = temp.find(prod => prod.variant.id === item.variant.id);
@@ -83,6 +64,7 @@ export default function StateWrapper({children}) {
             getTotalOfCart: handlegetTotalOfCart,
             deleteItemToCart:handleDeleteItemToCart,
             clearCart:handleClearCart,
+
         }}>
             {children}
         </CartContext.Provider>

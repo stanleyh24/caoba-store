@@ -19,13 +19,13 @@ function Home() {
             <div className="flex justify-center" key={prod.id}>
             <div className="w-96">
               <img
-                className="object-scale-down w-full h-96"
+                className="object-scale-down w-full h-72"
                 src={`${API_URL}/${prod.image_url}`}
                 alt="image"
               />
             </div>
             <div className="flex flex-col">
-              <h1 className="text-4xl font-bold primary-color my-8">{prod.name}</h1>
+              <h1 className="text-4xl font-bold primary-color ">{prod.name}</h1>
               <p className="text-lg max-w-xl ">{prod.description}</p>
               <Link to={`/productos/${prod.id}`}>
                       <button className="text-xl font-semibold tracking-tight mt-8 p-2 primary-color border-2 border-current rounded-md">

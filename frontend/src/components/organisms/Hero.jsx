@@ -2,12 +2,13 @@ import React from 'react'
 import { Link } from "react-router-dom";
 const Hero = () => {
   return (
-    <section className='max-h-96 h-96 w-full heroImage pt-10'>
-      <div className='max-w-lg md:ml-36 heroImage-text p-4'>
-       <p className='text-3xl primary-color  font-semibold mb-6 '>Los Mejores Cigarros Artesanales con la mejores hojas.</p>
-        <Link to={`/productos/`}>
-          <button className='primary-color border-current font-medium p-2 border-2 rounded-md'>Descubre mas</button>
-        </Link>
+    <section className='w-full flex h-2/3'>
+      <div className='w-1/3'>
+      <img className="h-full " src="img/hechos_a_mano2.jpg" alt="Hechos a Mano" />
+      </div>
+      <div className='w-2/3 heroImage-text p-4 heroImage'>
+       <h1 className='text-3xl primary-color  font-semibold mb-6 '>Caoba Cigars</h1>
+    
       </div>
         
     </section>

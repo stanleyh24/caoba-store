@@ -9,13 +9,13 @@ export default function CardComponent({img,title,content,children}) {
                 alt="image"
             />
             <div className="p-4 flex flex-col">
-                
-                <p className="mb-2 leading-normal">
-                    {content}
-                </p>
                 <div className="">
                     {children}
                 </div>
+                <p className="mb-2 leading-normal">
+                    {content}
+                </p>
+                
             </div>
         </div>
     );

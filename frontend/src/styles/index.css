@@ -4,24 +4,28 @@
 
 .primary-color {
     /* color:#ffc600 */
-    color: #efb810;
+    color: #AD7A06;
 }
 
 .secondary-color {
     /* color:#ffc600 */
-    color: #9e4230;
+    color: #1A0000;
 }
 
-.heroImage {
-    background-image: url('/img/tabaco.jpg');
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;	
+.text-color {
+    color: #221F1B;
 }
 
-.heroImage-text {
-    display: grid;
-    background-color: hsla(218, 3%, 94%, 0.2);
+.brown {
+    color: #7D4633;
+}
+
+.gradient {
+    background: radial-gradient(97.6% 97.6% at 48.78% 6.57%, #B35900 24.48%, rgba(179, 89, 0, 0) 100%)
+}
+
+.bg-primary {
+    background: #FFF2E5;
 }
 
 

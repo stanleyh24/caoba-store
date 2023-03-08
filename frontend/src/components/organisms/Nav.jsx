@@ -30,12 +30,12 @@ const Nav = () => {
         <ul className={`font-bold md:flex md:items-center md:pb-0 pb-12 absolute md:static bg-white md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${open ? 'top-20' :'top-[-490px]'} md:opacity-100 `}>
          {
           links.map((l, index) =>(
-            <li key={index} className='md:ml-8 text-xl md:my-0 my-7'>
+            <li key={index} className='md:ml-8 text-xl md:my-0 my-7 secondary-color'>
               <Link to={l.link}>{l.name}</Link>
             </li>
           ))
          }
-         <li className='md:ml-8 text-xl md:my-0 my-7'>
+         <li className='md:ml-8 text-xl md:my-0 my-7 secondary-color'>
           <Link to='/cart' className='flex items-center'>
             <FaShoppingCart/>
             <p className='primary-color pl-1'>

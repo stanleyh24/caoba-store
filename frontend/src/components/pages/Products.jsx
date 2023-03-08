@@ -29,9 +29,9 @@ const products = () => {
               content='Cigarro suave a medio, combinación de tripa y capote dominicano.'
             >
               
-                    <h3 className="text-xl font-semibold tracking-tight text-gray-900 mb-2 primary-color">
-                    Caoba Oro
-                    </h3>
+            <h3 className="text-xl font-semibold tracking-tight text-gray-900 mb-2 primary-color">
+              Caoba Oro
+            </h3>
               
             </CardComponent>
             <CardComponent 

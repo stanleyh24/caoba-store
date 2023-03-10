@@ -11,7 +11,7 @@ const products = () => {
   return (
       <div className='container mx-auto px-6'>
         <div>
-          <h1 className='text-3xl font-semibold py-3'>Caoba Premium</h1>
+          <h1 className='text-3xl font-semibold py-3 secondary-color'>Caoba Premium</h1>
           <div className='grid md:grid-cols-3 grid-cols-1 gap-4'>
             <CardComponent 
               img="/img/Platino.png"
@@ -48,7 +48,7 @@ const products = () => {
         </div>
 
         <div>
-          <h1 className='text-3xl font-semibold py-3'>Grandes Reservas</h1>
+          <h1 className='text-3xl font-semibold py-3 secondary-color'>Grandes Reservas</h1>
           <div className='grid md:grid-cols-3 grid-cols-1 gap-4'>
             <CardComponent 
               img="/img/suprime.png"
@@ -106,7 +106,7 @@ const products = () => {
         </div>
 
         <div>
-          <h1 className='text-3xl font-semibold py-3'>Origen Dominicano</h1>
+          <h1 className='text-3xl font-semibold py-3 secondary-color'>Origen Dominicano</h1>
           <div className='grid md:grid-cols-3 grid-cols-1 gap-4'>
             <CardComponent 
               img="/img/Origen_Dominicano.png"

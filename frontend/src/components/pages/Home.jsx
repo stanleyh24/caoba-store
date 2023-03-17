@@ -2,7 +2,6 @@ import { Card, Carousel } from "flowbite-react";
 import useFetch from "../../hooks/useFeth";
 import { API_URL } from "../../constants/env";
 import { Link } from "react-router-dom";
-import UPSRates from "../organisms/UPSRates";
 import CardComponent from "../organisms/Card";
 
 function Home() {

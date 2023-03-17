@@ -7,6 +7,7 @@ import Loader from "../atoms/Loader"
 
 const Store = () => {
   const { data, loading, error } = useFetch(`products`)
+  
   if (loading) return <Loader />
   if (error) return <div>{error?.message}</div>
  
@@ -15,6 +16,7 @@ const Store = () => {
   return (
     
         <div className='mx-auto px-6 grid md:grid-cols-3 grid-cols-1 gap-4 justify-items-center'>
+
         {data.map((product) => (
           
             <CardComponent 

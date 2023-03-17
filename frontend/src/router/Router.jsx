@@ -9,6 +9,11 @@ import Contact from "../components/pages/Contact"
 import Product from "../components/pages/Product"
 import Cart from "../components/pages/Cart"
 import Payment from "../components/pages/Payment"
+import Admin from "../components/templates/Admin"
+import Login from "../components/pages/admin/Login"
+import Orders from "../components/pages/admin/Orders"
+import AdminProducts from "../components/pages/admin/AdminProducts"
+import AdminProductCreate from "../components/pages/admin/AdminProductCreate"
 
 
 const router = createBrowserRouter([
@@ -49,9 +54,31 @@ const router = createBrowserRouter([
               path:'/pago-exitoso',
               element:<Payment/>
             },
+        ],       
+    },
+    {
+      path:"admin/login",
+      element: <Login />,
+    },
+    {
+        path: "/admin",
+        element: <Admin />,
+        children: [
+          
+          {
+            path: "/admin/ordenes",
+            element: <Orders/>,
+          },
+          {
+            path: "/admin/productos",
+            element: <AdminProducts/>,
+          },
+          {
+            path: "/admin/productos/crear",
+            element: <AdminProductCreate/>,
+          }, 
         ],
-        
-    },   
+      },   
     
 ])
 

@@ -10,8 +10,7 @@ function App() {
       <div className='pt-14 w-full h-full'>
         <Outlet />
       </div>
-    {/* <Footer/> */}
-      
+         
     </div>
   )
 }

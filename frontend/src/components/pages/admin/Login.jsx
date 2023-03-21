@@ -1,10 +1,13 @@
 import { useState } from "react"
 import { API_URL } from "../../../constants/env"
 import { useNavigate } from "react-router-dom"
+import {useUserContext} from "../../../context/UserContext"
 
 
 const Login = () => {
   const nav = useNavigate()
+  const user = useUserContext()
+  
   const [error, setError] = useState()
 
   const handleSubmit = (e) => {
@@ -22,7 +25,7 @@ const Login = () => {
       })
       .then(res => res.json())
       .then(data => {
-        localStorage.setItem('authTokens', JSON.stringify(data))
+        user.setTokens(data)
         nav("/admin/ordenes")
       })
       .catch(error => console.log('Error:', error)) 
@@ -45,6 +48,7 @@ const Login = () => {
                     type="text"
                     name='username'
                     id='username'
+                    autoFocus
                     className="block w-full px-4 py-2 mt-2 text-gray-800 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
                 />
             </div>

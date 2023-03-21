@@ -4,11 +4,15 @@ import '../src/styles/index.css'
 import router from "./router/Router"
 import StateWrapper from "./context/CartContext"
 
+import { UserProvider } from "./context/UserContext"
+
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <StateWrapper>
-    <RouterProvider router={router} />
+    <UserProvider>
+      <RouterProvider router={router} />
+    </UserProvider>
   </StateWrapper>
   
 )

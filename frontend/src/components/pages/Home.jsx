@@ -15,18 +15,18 @@ function Home() {
         </div>
       </section>
 
-      <section className="flex justify-center m-8 items-center ">
+      <section className="flex flex-col-reverse md:flex-row md:flex justify-center m-8 md:items-center ">
         <img
           className="w-[468px] max-h-72"
           src="/img/finca-tabaco.jpg"
           alt=""
         />
 
-        <div className="ml-8">
-          <p className="text-5xl font-sans font-bold secondary-color">
+        <div className="md:ml-8">
+          <p className=" md:text-5xl font-sans font-bold secondary-color">
             Las mejores hojas.
           </p>
-          <p className="text-5xl font-sans font-bold secondary-color">
+          <p className="md:text-5xl font-sans font-bold secondary-color">
             El mejor cigarro
           </p>
         </div>
@@ -133,10 +133,10 @@ function Home() {
         
       </section>
 
-      <section className="flex justify-center m-8 items-center">
-        <div className="m-8">
+      <section className="md:flex justify-center m-2 md:m-8 items-center">
+        <div className="m-2 md:m-8">
           <h2 className="secondary-color font-bold text-4xl">Hechos a Mano.</h2>
-          <div className="w-96">
+          <div className=" md:w-96">
             <p className="font-sans secondary-color text-justify leading-normal">
               Hechos a mano solo con las mejores hojas de tabaco para crear los
               mejores cigarros dominicanos y brindar la mejor experiencia a

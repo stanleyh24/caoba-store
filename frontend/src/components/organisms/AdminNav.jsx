@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { Link } from "react-router-dom";
+import { useUserContext } from '../../context/UserContext';
 
 
 const AdminNav = () => {
-    
+    const user = useUserContext()
+
     let links = [
       {name:'Productos', link:'/admin/productos'},
       {name:'Ordenes', link:'/admin/ordenes'},
@@ -32,7 +34,7 @@ const AdminNav = () => {
             ))
            }
 
-           <button className='bg-[#AD7A06] md:ml-8 text-xl md:my-0 my-7 secondary-color px-8 rounded-lg'>Salir</button>
+           <button className='bg-[#AD7A06] md:ml-8 text-xl md:my-0 my-7 secondary-color px-8 rounded-lg' onClick={user.logout}>Salir</button>
                       
           </ul>
         </div>

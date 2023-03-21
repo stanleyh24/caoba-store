@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import CardComponent from '../../organisms/Card'
+import { API_URL } from "../../../constants/env"
 import useFetch from "../../../hooks/useFeth"
 import Loader from "../../atoms/Loader"
 

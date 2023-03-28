@@ -13,6 +13,13 @@ const Nav = () => {
     {name:'Contactos', link:'/contactos'},
   ]
 
+ /*  let links = [
+    {name:'Inicio', link:'/'},
+    {name:'Productos', link:'/productos'},
+    {name:'Historia', link:'/historia'},
+    {name:'Contactos', link:'/contactos'},
+  ] */
+
   let [open,setOpen]= useState(false)
 
   return (

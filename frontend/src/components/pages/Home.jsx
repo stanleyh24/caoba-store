@@ -9,16 +9,19 @@ function Home() {
 
   return (
     <>
-      <section className="gradient w-full h-96 flex justify-center">
+      <section className="gradient w-full h-[500px] flex justify-center">
         <div className="container p-2">
-          <img className="w-full h-96" src="/img/hecho-a-mano-min.png" alt="" />
+          <picture>
+            <source srcSet="/img/hecho-a-mano.webp" type="image/webp"/>
+            <img className="w-full h-[500px]" src="/img/hecho-a-mano.jpg" alt="" />
+          </picture>
         </div>
       </section>
 
       <section className="flex flex-col-reverse md:flex-row md:flex justify-center m-8 md:items-center ">
         <img
           className="w-[468px] max-h-72"
-          src="/img/finca-tabaco.jpg"
+          src="/img/finca-tabaco.png"
           alt=""
         />
 
@@ -34,7 +37,7 @@ function Home() {
 
       <section className="flex justify-center h-[420px]">
         <div className="flex justify-center flex-col container">
-          <Carousel>
+          <Carousel slideInterval={9000} indicators={false}>
             <div className="grid md:grid-cols-3 grid-cols-1 gap-4">
               <CardComponent
                 img="/img/oro-1.png"
@@ -146,7 +149,7 @@ function Home() {
         </div>
         <img
           className="w-[468px] max-h-72"
-          src="/img/hechos_a_mano.jpg"
+          src="/img/hechos_a_mano.png"
           alt=""
         />
       </section>

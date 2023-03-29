@@ -44,9 +44,11 @@ function Home() {
                 title="Caoba Oro"
                 content="Cigarro suave a medio, combinación de tripa y capote dominicano."
               >
+                <Link to={'/productos/6e6bd292-3b3e-4205-91dd-41c3327ee64c'}>
                 <h3 className="text-xl font-semibold tracking-tight text-gray-900 mb-2 primary-color">
                   Caoba Oro
                 </h3>
+                </Link>
               </CardComponent>
 
               <CardComponent
@@ -54,19 +56,25 @@ function Home() {
                 title="Caoba Diamante"
                 content="Cigarro fuerte, fue creada con la características de un puro con mucha fortaleza, siempre con una calidad superior.Tripa y capote Dominicano con capa San Andres."
               >
+                <Link to={'/productos/6e6bd292-3b3e-4205-91dd-41c3327ee64c'}>
+                  
                 <h3 className="text-xl font-semibold tracking-tight text-gray-900 mb-2 primary-color">
                 Caoba Diamante
                 </h3>
+                </Link>
               </CardComponent>
 
               <CardComponent
                 img="/img/platino-1.png"
                 title="Caoba Platino"
                 content="Cigarro suave, esta concebido con una selección cuidadosa de cada una de sus cinco hojas,siendo su tripa y capote dominicanos y su capa traída desde Connecticut."
-              >
+              > 
+                <Link to={'/productos/6e6bd292-3b3e-4205-91dd-41c3327ee64c'}>
+
                 <h3 className="text-xl font-semibold tracking-tight text-gray-900 mb-2 primary-color">
                   Caoba Platino
                 </h3>
+                </Link>
               </CardComponent>
             </div>
 

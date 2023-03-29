@@ -103,11 +103,11 @@ const Product = () => {
             <p className="leading-relaxed">{data.description}</p>
             <div className='flex  border-b-2 border-gray-200 py-2'>
               <div className='basis-1/3 flex'>
-                <span className='font-semibold mr-2'>Fuerza:</span>
+                <span className='font-semibold mr-2'>Fortaleza:</span>
                 <p>{variantSelected?.strength}</p>
               </div>
               <div className='basis-1/4 flex'>
-                <span className='font-semibold mr-2'>Largo:</span>
+                <span className='font-semibold mr-2'>Longitud:</span>
                 <p>{variantSelected?.length}</p>
               </div>
               <div className='basis-1/4 flex'>

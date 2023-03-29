@@ -7,10 +7,10 @@ const Nav = () => {
   const cart = useCartContext();
   let links = [
     {name:'Inicio', link:'/'},
-    {name:'Productos', link:'/productos'},
-    {name:'Tienda', link:'/tienda'},
     {name:'Historia', link:'/historia'},
+    {name:'Productos', link:'/productos'},
     {name:'Contactos', link:'/contactos'},
+    {name:'Tienda', link:'/tienda'},
   ]
 
  /*  let links = [

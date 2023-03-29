@@ -214,7 +214,7 @@ const ShippingForm = ({setOrder, cart}) => {
               <input  type="checkbox" id="confirmation"  required/>
             </div>
             <div className='pl-2'>
-            <p className='font-semibold text-color'>El Cliente se compromete a pagar cualquier cargo aduanal impuesto por el pais de destino.</p>
+            <p className='font-semibold text-color'> Los impuesto establecidos por el pais de destino son a cargo y responsabilidad exclusiva del comprador.</p>
             </div>
           </div>
            

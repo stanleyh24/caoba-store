@@ -7,8 +7,12 @@ import Loader from "../../atoms/Loader"
 
 const AdminProducts = () => {
   const { data, loading, error } = useFetch(`products`)
-  if (loading) return <Loader />
-  if (error) return <div>{error?.message}</div>
+  if (loading) {
+    return <Loader />
+  }
+  if (error) {
+    return <div>{error?.message}</div>
+  }
 
 
   return (

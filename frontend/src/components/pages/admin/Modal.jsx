@@ -29,8 +29,8 @@ const Modal = ({product}) => {
 
     }
     
-    console.log(variantData);
-    let {response, data} = await api(`/products/${product}/variant`)
+    //console.log(variantData);
+    //let {response, data} = await api(`/products/${product}/variant`)
   }
 
   return (

@@ -9,30 +9,12 @@ function Home() {
 
   return (
     <>
-      <section className="gradient w-full h-[500px] flex justify-center">
-        <div className="container p-2">
-          <picture>
-            <source srcSet="/img/hecho-a-mano.webp" type="image/webp"/>
-            <img className="w-full h-[500px]" src="/img/hecho-a-mano.jpg" alt="" />
+      <section className=" w-full h-[700px] flex flex-col justify-center mb-8 ">
+          <picture >
+            <source  srcSet="/img/bodegon.webp" type="image/webp"/>
+            <img className="w-full h-[700px]" src="/img/bodegon.jpg" alt="" />
+            
           </picture>
-        </div>
-      </section>
-
-      <section className="flex flex-col-reverse md:flex-row md:flex justify-center m-8 md:items-center ">
-        <img
-          className="w-[468px] max-h-72"
-          src="/img/finca-tabaco.png"
-          alt=""
-        />
-
-        <div className="md:ml-8">
-          <p className=" md:text-5xl font-sans font-bold secondary-color">
-            Las mejores hojas.
-          </p>
-          <p className="md:text-5xl font-sans font-bold secondary-color">
-            El mejor cigarro
-          </p>
-        </div>
       </section>
 
       <section className="flex justify-center h-[420px]">
@@ -149,9 +131,7 @@ function Home() {
           <h2 className="secondary-color font-bold text-4xl">Hechos a Mano.</h2>
           <div className=" md:w-96">
             <p className="font-sans secondary-color text-justify leading-normal">
-              Hechos a mano solo con las mejores hojas de tabaco para crear los
-              mejores cigarros dominicanos y brindar la mejor experiencia a
-              aquellas personas que disfrutan un buen cigarro.
+            Elaborados por los más experimentados maestros tabaqueros con el mejor tabaco Dominicano.
             </p>
           </div>
         </div>

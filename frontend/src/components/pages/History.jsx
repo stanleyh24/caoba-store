@@ -9,17 +9,15 @@ const History = () => {
 
       <div className=' max-w-5xl pt-3'>
         <p className='text-justify '>
-          Caoba Cigars nace de la pasión por los cigarros de un hombre de negocios, Don Julio Prez Gonzales, emigrante de origen español que vivió 66 años en República Dominicana, quien, en el año 1992, inicio la producción de los cigarros Caoba en la pequeña fabrica de Villa Faro, en Santo Domingo, capital de la República Dominicana.<br/><br/>
+        Caoba Cigars es una empresa familiar de labores de tabaco situada en el corazón de 
+Santo Domingo en la plaza Colón, que nace de la pasión por los cigarros de Don Julio Perez Gonzalez, emigrante de origen español, que contrajo matrimonio con la empresaria dominicana Doña Alicia Lama Handal, quien se establece durante 66 años en República Dominicana, e inicio en el año 1992, la producción de los cigarros que hoy dan nombre a nuestra marca.
+<br/><br/>
 
-          Don Julio era un enamorado de la madera y tenia un taller artesanal de esculturas de caoba, así como diversos tipos de negocios relacionados con este tipo de madera en el norte de España, experiencia vital que le llevo a  honrar el árbol nacional dominicano y ponerle nombre a su marca. "Caoba Cigars"<br/><br/>
+Don Julio era un enamorado de la madera y como tal fue propietario de un taller artesanal de esculturas de caoba en Santo Domingo, lo que le llevó a ponerle nombre a nuestra marca, la cual se encuentra registrada en República Dominicana, EEUU y la Unión Europea, mercados en los que se halla presente.<br/><br/>
 
-          Su inquietud por la selección de la hoja, el amor a la tierra dominicana y a la búsqueda de la perfección son las premisas que lo han llevado a convertir Caoba Cigars en una fabrica artesanal de referencia de las labores de tabaco, para el disfrute del fumador, donde brilla la calidad de la hoja dominicana y el buen hacer de su personal.<br/>
+Inicialmente, Caoba Cigars tenía su sede localizada en Villa Faro ( fábrica que aún conservamos ) en Santo Domingo Este. Sin embargo, en la actualidad nuestra ” Boutique de Fabricación ” se encuentra localizada en la Zona Colonial, frente a la Catedral Primada de América, donde nuestros clientes pueden contemplar el proceso de producción, enteramente manual, de nuestros cigarros Caoba, y disfrutar del placer de fumar en buen puro dominicano, en pleno casco histórico de Santo Domingo.<br/><br/>
 
-          Sus últimos 30 años los paso al frente de la fabrica de cigarros Caoba, habiendo dejado un legado que conforma la esencia de la boutique de cigarros: "producir solo el mejor cigarro, con las mejores hojas".<br/><br/>
-
-          En la actualidad, la fabrica de Caoba Cigars se encuentra localizada en pleno parque Colon de la zona Colonial, centro del casco histórico de la ciudad de Santo Domingo y, concretamente, frente a la Catedral Primada de América; conservando, asimismo, la  fabrica originaria de Villa Faro.<br/><br/>
-
-          La marca de cigarros Caoba se encuentra registrada en República Dominicana, EE.UU y la Union Europea, mercados, entre otros, en los que sus cigarros se hallan presentes.
+Nuestro ADN: “ Pasión por la excelencia ”.<br/><br/>
         </p>
       </div>
     </div>

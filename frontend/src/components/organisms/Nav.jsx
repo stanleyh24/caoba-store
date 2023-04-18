@@ -23,11 +23,13 @@ const Nav = () => {
   let [open,setOpen]= useState(false)
 
   return (
-    <nav className='bg-white shadow-md w-full fixed top-0 left-0'>
+    <nav className='bg-white shadow-md w-full fixed top-0 left-0 '>
       <div className='md:flex py-3 md:px-10 items-center justify-between'>
         <div>
           <Link to='/'>
-            <h1 className='text-2xl font-bold primary-color'>Caoba Cigars</h1>
+            {/* <h1 className='text-2xl font-bold primary-color'>Caoba Cigars</h1> */}
+            <img className="" src="/img/Caoba-Cigars-text.jpeg" alt="" />
+         
           </Link>
           
         </div>

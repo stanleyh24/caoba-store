@@ -6,8 +6,10 @@ import Nav from "../organisms/Nav"
 function App() {
   return (
     <div className="bg-gray-100 bg-primary ">
+      <div className="mb-20">
       <Nav/>
-      <div className='pt-14 w-full h-full'>
+      </div>
+      <div className='w-full h-full'>
         <Outlet />
       </div>
          

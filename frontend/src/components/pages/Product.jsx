@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react'
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import useFetch from "../../hooks/useFeth"
 import Loader from "../atoms/Loader"
 import { API_URL } from "../../constants/env"
@@ -9,6 +9,7 @@ import { useCartContext} from '../../context/CartContext'
 
 
 const Product = () => {
+    const nav = useNavigate()
     const params = useParams()
     const cart = useCartContext()
     const [variants, setVariants] = useState([])
@@ -91,6 +92,25 @@ const Product = () => {
     
     }
 
+    const buyNow = () => {
+        let item = {
+        product: {
+          id: data.id,
+          name: data.name,
+          image_url: data.image_url
+        },
+        variant:{
+          id: variantSelected.id,
+          name: variantSelected.name,
+          price: variantSelected.price,
+          packaging_type: variantSelected.packaging_type
+        }
+        
+      }
+     cart.addItemToCart(item)
+     nav('/cart')
+    }
+
 
     return (
     <section className="text-gray-700 body-font overflow-hidden bg-white">
@@ -147,8 +167,10 @@ const Product = () => {
               <div className="flex">
               <span className="title-font font-medium text-3xl text-gray-900">${variantSelected?.price}</span>
               {!cart.items.find((c) => c.id === variantSelected?.id) ? (
-                <button className="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded" onClick={addToCart}>agregar al carrito</button>
-                
+                <>
+                <button className="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded" onClick={addToCart}>Agregar al carrito</button>
+                <button className="flex ml-1 text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded" onClick={buyNow}>Comprar ahora</button>
+                </>
               ): (
                 <button className="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded" onClick={removeFromCart}>quitar del carrito</button>
               )

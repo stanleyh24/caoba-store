@@ -32,23 +32,18 @@ let useAdminFetch = () => {
         return data
     }
 
-    return async (url) => {
+    return async (url, conf) => {
             const u = jwt_decode(user.authTokens.access)
             const isExpired = dayjs.unix(u.exp).diff(dayjs()) < 1;
-    
+            config= conf
+                
             if (isExpired) {
-                console.log("antes del refreshing")
                 let refreshedToken = await refreshToken()
-                config['headers'] = {
-                    Authorization:`Bearer ${refreshedToken.access}`
-                }
+                config['headers'] = {...conf['headers'],Authorization:`Bearer ${refreshedToken.access}`}
             } else {
-                config['headers'] = {
-                    Authorization:`Bearer ${user.authTokens?.access}`
-                }
+                config['headers'] = {...conf['headers'],Authorization:`Bearer ${user.authTokens?.access}`}
+
             }
-    
-            
             let {response, data} = await originalRequest(url, config)
             return {response, data}
         };

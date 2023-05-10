@@ -10,7 +10,9 @@ const Orders = () => {
   let api = useAdminFetch()
   
   useEffect(()=>{
-    let response = api('/orders')
+    let response = api('/orders',{
+     
+    })
     
     if (response.status === 200){
       SetOrders(response.data)

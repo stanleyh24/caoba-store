@@ -24,7 +24,7 @@ const AdminProducts = () => {
             Agregar producto
           </Link>
 
-          <div className="mt-8">
+          <div className="mt-8 grid grid-cols-4 gap-3">
             {data.map((product) => (
             
               <CardComponent 

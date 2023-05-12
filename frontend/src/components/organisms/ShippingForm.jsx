@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { useState} from 'react';
 import { API_URL } from "../../constants/env"
 import Select from 'react-select'
 import countries from '../../helpers/countries'
 
 
-const ShippingForm = ({setOrder, cart}) => {
+const ShippingForm = ({setOrder, cart, setUserInfo}) => {
   const [rates, setRates] = useState([]);
   const [executed,setExecuted] = useState(false);
   const [values, setValues] = useState({
@@ -85,13 +85,50 @@ const ShippingForm = ({setOrder, cart}) => {
     return found.TotalCharges.MonetaryValue
   }
   
+  function getPackageSize() {
+    let height = 0
+    let length = 0
+    let width = 0
+    let weight = 0
+    for (let i = 0; i < cart.items.length; i++) {
+      if (cart.items[i].qty > 1){
+        height += cart.items[i].variant.packaging_height * cart.items[i].qty
+      } else {
+        height += cart.items[i].variant.packaging_height
+      }
+      
+      length = Math.max(length,cart.items[i].variant.packaging_length)
+      width = Math.max( width,cart.items[i].variant.packaging_width)
+
+      if (cart.items[i].qty > 1) {
+        weight += cart.items[i].variant.weight * cart.items[i].qty
+      } else {
+        weight += cart.items[i].variant.weight
+      }
+      
+    }
+    return {
+          height: height,
+          weight: weight,
+          length: length,
+          width: width
+        };
+
+  }
+ 
  async function getRate() {
+  let i = getPackageSize()
   let bodyReq = {
     Name: `${values.first_name} ${values.last_name}`,
     AddressLine: values.address,
     City: values.city,
     PostalCode: values.postal_code,
-    CountryCode: values.country.code
+    CountryCode: values.country.code,
+    Packaging_length: i.length,
+    Packaging_width: i.width,
+    Packaging_height: i.height,
+    Weight: i.weight
+
   }
   await fetch(`${API_URL}/shiping`,{
     method: "POST",
@@ -133,7 +170,7 @@ const ShippingForm = ({setOrder, cart}) => {
           }
         }) 
         data.amount= cart.getTotalOfCart()
-        data.total_amount =  (parseFloat(data.amount) +  parseFloat(data.shipping_price)).toFixed(2)
+        data.total_amount = (parseFloat(data.amount) + parseFloat(data.shipping_price)).toFixed(2)
 
         let response = await fetch(`${API_URL}/orders/`,{
           method: "POST",
@@ -150,9 +187,8 @@ const ShippingForm = ({setOrder, cart}) => {
 
         if (response.status === 201){
           setOrder(d)
-        }
-
-        
+          setUserInfo(data)
+        }        
       }
 
   return (

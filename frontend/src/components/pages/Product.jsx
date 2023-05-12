@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react'
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import useFetch from "../../hooks/useFeth"
 import Loader from "../atoms/Loader"
 import { API_URL } from "../../constants/env"
@@ -9,6 +9,7 @@ import { useCartContext} from '../../context/CartContext'
 
 
 const Product = () => {
+    const nav = useNavigate()
     const params = useParams()
     const cart = useCartContext()
     const [variants, setVariants] = useState([])
@@ -78,12 +79,40 @@ const Product = () => {
           id: variantSelected.id,
           name: variantSelected.name,
           price: variantSelected.price,
-          packaging_type: variantSelected.packaging_type
+          packaging_type: variantSelected.packaging_type,
+          packaging_length: variantSelected.packaging_length,
+          packaging_width: variantSelected.packaging_width,
+          packaging_height: variantSelected.packaging_height,
+          weight: variantSelected.weight
         }
         
       }
+      
      cart.addItemToCart(item)
     }
+
+    const buyNow = () => {
+      let item = {
+      product: {
+        id: data.id,
+        name: data.name,
+        image_url: data.image_url
+      },
+      variant:{
+        id: variantSelected.id,
+        name: variantSelected.name,
+        price: variantSelected.price,
+        packaging_type: variantSelected.packaging_type,
+        packaging_length: variantSelected.packaging_length,
+        packaging_width: variantSelected.packaging_width,
+        packaging_height: variantSelected.packaging_height,
+        weight: variantSelected.weight
+      }
+      
+    }
+   cart.addItemToCart(item)
+   nav('/cart')
+  }
 
 
     const removeFromCart = () => {
@@ -98,7 +127,6 @@ const Product = () => {
         <div className="lg:w-4/5 mx-auto flex flex-wrap">
           <img alt="ecommerce" className="lg:w-1/2 w-full object-cover object-center rounded border border-gray-200" src={`${API_URL}/${data.image_url}`}/>
           <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-            <h2 className="text-sm title-font text-gray-500 tracking-widest">BRAND NAME</h2>
             <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">{data.name}</h1>
             <p className="leading-relaxed">{data.description}</p>
             <div className='flex  border-b-2 border-gray-200 py-2'>
@@ -133,12 +161,6 @@ const Product = () => {
                 <span className="mr-3">Tipo de Cigarro</span>
                 <div className="relative">
                   <Select options={uniqueArray} onChange={handleSelectChange}/>
-                  
-                 {/*  <span className="absolute right-0 top-0 h-full w-10 text-center text-gray-600 pointer-events-none flex items-center justify-center">
-                    <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4" viewBox="0 0 24 24">
-                      <path d="M6 9l6 6 6-6"></path>
-                    </svg>
-                  </span> */}
                 </div>
               </div>
             </div>
@@ -146,12 +168,13 @@ const Product = () => {
             ):(
               <div className="flex">
               <span className="title-font font-medium text-3xl text-gray-900">${variantSelected?.price}</span>
-              {!cart.items.find((c) => c.id === variantSelected?.id) ? (
-                <button className="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded" onClick={addToCart}>agregar al carrito</button>
-                
-              ): (
-                <button className="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded" onClick={removeFromCart}>quitar del carrito</button>
-              )
+              {cart.items.find((c) => c.id === variantSelected?.id) ? 
+                               <button className="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded" onClick={removeFromCart}>quitar del carrito</button>
+                              : 
+                               <>
+                               <button className="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded" onClick={addToCart}>Agregar al carrito</button>
+                               <button className="flex ml-1 text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded" onClick={buyNow}>Comprar ahora</button>
+                               </>
               }
             </div>
             )

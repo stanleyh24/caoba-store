@@ -1,6 +1,10 @@
 import { useParams } from "react-router-dom"
 import { useState, useEffect } from 'react'
 import useAdminFetch from "../../../hooks/useAdminFetch";
+<<<<<<< HEAD
+=======
+import { API_URL } from "../../../constants/env"
+>>>>>>> origin/dev
 
 const AdminAddVariant = () => {
     const params = useParams()
@@ -37,8 +41,12 @@ const AdminAddVariant = () => {
     useEffect(() => {
       getProduct();
       getVariants();     
+<<<<<<< HEAD
     },[]
     )
+=======
+    },[])
+>>>>>>> origin/dev
 
     const handleOnChange = () => {
       setIsChecked(!isChecked);
@@ -55,12 +63,20 @@ const AdminAddVariant = () => {
         strength: e.target.strength.value,
         packaging_type: e.target.packaging_type.value,
         price: e.target.price.value,
+<<<<<<< HEAD
+=======
+        weight:e.target.weight.value,
+>>>>>>> origin/dev
         available: isChecked,
         packaging_length: dimentions[0],
         packaging_width: dimentions[1],
         packaging_height: dimentions[2]
   
       }
+<<<<<<< HEAD
+=======
+      
+>>>>>>> origin/dev
  
       let {response, data} = await api(`/products/${params.id}/variant`, {
         method: "POST",
@@ -74,12 +90,17 @@ const AdminAddVariant = () => {
       })
 
       if (response.status === 201) {
+<<<<<<< HEAD
+=======
+        console.log(data)
+>>>>>>> origin/dev
         setVariants(variants.concat(data))
       }
     }
     
   return (
   <>
+<<<<<<< HEAD
     <h1>{product?.name}</h1>
     <section className="mb-12">
         <h2>Agregar Variante</h2>
@@ -108,6 +129,54 @@ const AdminAddVariant = () => {
                     <input name="strength" className=" mb-2 shadow appearance-none border rounded w-full py-2 px-1 secondary-color" />
                     
                     <label htmlFor="packaging_type" className="block secondary-color text-sm font-bold mb-1">
+=======
+    
+    <section className="md:flex mb-12 gap-8 w-full">
+        <div className="bg-gray-50 shadow-md rounded px-8 pt-6 pb-8 md:w-1/2 w-full">
+        <h1 className="text-3xl font-semibold">{product?.name}</h1>
+        <img
+                className="object-scale-down w-full h-64"
+                src={`${API_URL}/${product?.image_url}`}
+                alt="image"
+            />
+      
+        </div>
+
+        <form method="post" onSubmit={handleSubmit} className="bg-gray-50 shadow-md rounded px-8 pt-6 pb-8 md:w-1/2 w-full">
+          <h2 className="text-2xl font-semibold mb-2">Agregar Variante</h2>
+          <div className="md:flex gap-3">
+            <div className="basis-72">
+              <label className="secondary-color text-sm font-bold mb-1">
+                Tipo de Cigarro
+              </label>
+              <input name="name" className="mb-2 shadow appearance-none border rounded w-full py-2 px-1 secondary-color" />
+            </div>
+            <div className="basis-72">
+              <label className="secondary-color text-sm font-bold mb-1">
+                Largo
+              </label>
+              <input name="length" className=" mb-2 shadow appearance-none border rounded w-full py-2 px-1 secondary-color" />
+            </div>  
+            <div className="basis-72">
+              <label className="secondary-color text-sm font-bold mb-1">
+                Cepo
+              </label>
+              <input name="diameter" className=" mb-2 shadow appearance-none border rounded w-full py-2 px-1 secondary-color" />
+            </div>
+          </div>
+          
+          <div className="md:flex gap-3">
+            <div className="basis-72">
+              <label className="secondary-color text-sm font-bold mb-1">
+                Fortaleza
+              </label>
+              <input name="strength" className=" mb-2 shadow appearance-none border rounded w-full py-2 px-1 secondary-color" />
+            </div>
+
+            <div className="basis-72">
+
+                    <label htmlFor="packaging_type" className="secondary-color text-sm font-bold mb-1">
+>>>>>>> origin/dev
                         Tipo de paquete
                     </label>
                     <select name="packaging_type" id="packaging_type" className=" mb-2 shadow appearance-none border rounded w-full py-2 px-1 secondary-color">
@@ -116,6 +185,7 @@ const AdminAddVariant = () => {
                         <option value="12">12</option>
                         <option value="24">24</option>
                     </select>
+<<<<<<< HEAD
 
                     <label htmlFor="price" className="block secondary-color text-sm font-bold mb-1">
                         Precio de Venta
@@ -148,6 +218,56 @@ const AdminAddVariant = () => {
                 
                   <button
                     className="text-white bg-yellow-500 active:bg-yellow-700 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
+=======
+            </div>
+
+              <div className="basis-72">
+                    <label htmlFor="price" className="secondary-color text-sm font-bold mb-1">
+                        Precio de Venta
+                    </label>
+                    <input type="text" name="price" id="price" placeholder="0.00" className=" mb-2 shadow appearance-none border rounded w-full py-2 px-1 secondary-color"/>
+              </div>
+
+          </div>
+
+          <div className="md:flex gap-3">
+          
+          <div className="basis-72">
+          <label htmlFor="dimentions" className="secondary-color text-sm font-bold mb-1">
+            Dimensiones
+          </label>
+          <input type="text" name="dimentions" id="dimentions" placeholder="Largo X Ancho X Alto" className=" mb-2 shadow appearance-none border rounded w-full py-2 px-1 secondary-color"/>
+          </div>
+
+          <div className="basis-72">
+          <label htmlFor="dimentions" className="secondary-color text-sm font-bold mb-1">
+            Peso
+          </label>
+          <input type="text" name="weight" id="weight" placeholder="0 Lb" className=" mb-2 shadow appearance-none border rounded w-full py-2 px-1 secondary-color"/>
+          </div>
+
+          <div className="flex content-center items-center basis-72">
+              <label className="secondary-color text-sm font-bold mt-3">
+              <input
+                type="checkbox"
+                id="topping"
+                name="topping"
+                value="Paneer"
+                checked={isChecked}
+                onChange={handleOnChange}
+                className="mr-2"
+                />
+                Disponible
+              </label>
+          </div>
+
+          </div>
+          
+                <div className="flex items-center justify-center p-6 border-t border-solid border-blue Gray-200 rounded-b">
+                
+                  <button
+                    className="text-white bg-yellow-500 active:bg-yellow-700 font-bold uppercase text-sm px-10 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
+>>>>>>> origin/dev
                     type="submit"
                   >
                     Agregar
@@ -184,7 +304,11 @@ const AdminAddVariant = () => {
               </thead>
               <tbody>
                 {variants?.map((variant) =>(
+<<<<<<< HEAD
                   <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+=======
+                  <tr key={variant.id} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+>>>>>>> origin/dev
                       <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                         {variant.name}
                       </th>
@@ -198,10 +322,26 @@ const AdminAddVariant = () => {
                         {variant.price}
                       </td>
                       <td className="px-6 py-4">
+<<<<<<< HEAD
                         {variant.available}
                       </td>
                       <td className="px-6 py-4">
                           $2999
+=======
+                        {variant.available == true 
+                          ? 
+                            <div className="flex items-center">
+                            <div className="h-2.5 w-2.5 rounded-full bg-green-500 mr-2"></div> Disponible
+                            </div>
+                          : 
+                            <div className="flex items-center">
+                            <div className="h-2.5 w-2.5 rounded-full bg-red-500 mr-2"></div> No Disponible
+                            </div>
+                        }
+                      </td>
+                      <td className="px-6 py-4">
+                        
+>>>>>>> origin/dev
                       </td>
                   </tr>
                 ))}

@@ -170,11 +170,7 @@ const ShippingForm = ({setOrder, cart, setUserInfo}) => {
           }
         }) 
         data.amount= cart.getTotalOfCart()
-<<<<<<< HEAD
         data.total_amount =  (parseFloat(data.amount) +  parseFloat(data.shipping_price)).toFixed(2)
-=======
-        data.total_amount = (parseFloat(data.amount) + parseFloat(data.shipping_price)).toFixed(2)
->>>>>>> origin/dev
 
         let response = await fetch(`${API_URL}/orders/`,{
           method: "POST",
@@ -191,14 +187,7 @@ const ShippingForm = ({setOrder, cart, setUserInfo}) => {
 
         if (response.status === 201){
           setOrder(d)
-<<<<<<< HEAD
         }
-
-        
-=======
-          setUserInfo(data)
-        }        
->>>>>>> origin/dev
       }
 
   return (

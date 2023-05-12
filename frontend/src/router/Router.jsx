@@ -14,6 +14,7 @@ import Login from "../components/pages/admin/Login"
 import Orders from "../components/pages/admin/Orders"
 import AdminProducts from "../components/pages/admin/AdminProducts"
 import AdminProductCreate from "../components/pages/admin/AdminProductCreate"
+import AdminAddVariant from "../components/pages/admin/AdminAddVariant"
 
 
 const router = createBrowserRouter([
@@ -77,6 +78,10 @@ const router = createBrowserRouter([
             path: "/admin/productos/crear",
             element: <AdminProductCreate/>,
           }, 
+          {
+            path: "/admin/productos/:id/variants",
+            element:<AdminAddVariant/>
+          }
         ],
       },   
     

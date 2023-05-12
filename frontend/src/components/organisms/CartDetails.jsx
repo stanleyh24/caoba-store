@@ -45,7 +45,7 @@ const CartDetails = ({cart}) => {
                 </button>
               </div>
               <span className="text-center w-1/5 font-semibold text-sm">${prod.variant?.price}</span>
-              <span className="text-center w-1/5 font-semibold text-sm">${prod.variant?.price * prod?.qty}</span>
+              <span className="text-center w-1/5 font-semibold text-sm">${(prod.variant?.price * prod?.qty).toFixed(2)}</span>
             </div>
         )
         )}  

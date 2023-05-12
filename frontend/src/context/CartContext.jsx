@@ -36,7 +36,7 @@ export default function StateWrapper({children}) {
         for (let i = 0; i < items.length; i++){
             total += items[i].variant.price * items[i].qty
         }
-        return total.toFixed(2)
+        return total.toFixed(2);
     }
 
     function handleDeleteItemToCart(item) {

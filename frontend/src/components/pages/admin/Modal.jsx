@@ -1,4 +1,5 @@
 import { useState } from "react";
+import useAdminFetch from "../../../hooks/useAdminFetch";
 
 
 const Modal = ({product}) => {
@@ -29,7 +30,7 @@ const Modal = ({product}) => {
 
     }
     
-    //console.log(variantData);
+    console.log(variantData);
     //let {response, data} = await api(`/products/${product}/variant`)
   }
 

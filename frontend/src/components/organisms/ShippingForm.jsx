@@ -34,11 +34,9 @@ const ShippingForm = ({setOrder, cart}) => {
 
     setValues(newValues);
   
-    if (!executed){
-      if (values.postal_code.length >= 4 && values.address != "" && values.country.code != "" && values.city != "") {
-        getRate()
-        setExecuted(true)
-      }
+    if (!executed && (values.postal_code.length >= 4 && values.address != "" && values.country.code != "" && values.city != "")) {
+          getRate()
+          setExecuted(true)
     }
    
   }
@@ -109,8 +107,9 @@ const ShippingForm = ({setOrder, cart}) => {
   }
 
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
         e.preventDefault()
+       
         const data = {
           first_name: values.first_name,
           last_name: values.last_name,
@@ -119,13 +118,12 @@ const ShippingForm = ({setOrder, cart}) => {
           address: values.address,
           postal_code:values.postal_code,
           city: values.city,
-          country: values.country,
+          country: values.country.name,
           products:{},
           amount:0,
-          shipping:{
-            code: values.shipping_type,
-            price: getShippingPrice(values.shipping_type)
-          }
+          shipping_type: values.shipping_type,
+          shipping_price: getShippingPrice(values.shipping_type),
+          total_amount: 0
         }
         data.products= cart.items.map(p =>{
           return {
@@ -135,11 +133,26 @@ const ShippingForm = ({setOrder, cart}) => {
           }
         }) 
         data.amount= cart.getTotalOfCart()
-        console.log(data)
-        /* axios.post(`${API_URL}/orders`,data)
-        .then((resp)=> {
-          setOrder(resp.data)      
-        })  */
+        data.total_amount =  (parseFloat(data.amount) +  parseFloat(data.shipping_price)).toFixed(2)
+
+        let response = await fetch(`${API_URL}/orders/`,{
+          method: "POST",
+          mode: "cors",
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            
+          },
+          body: JSON.stringify(data)
+        })
+
+        let d = await response.json()
+
+        if (response.status === 201){
+          setOrder(d)
+        }
+
+        
       }
 
   return (

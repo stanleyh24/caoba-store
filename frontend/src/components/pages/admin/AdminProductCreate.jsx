@@ -1,18 +1,22 @@
 import {useState, useEffect} from 'react'
 import {MdDelete, MdEdit} from 'react-icons/md'
-//import Modal from './Modal';
+import Modal from './Modal';
 import { API_URL } from "../../../constants/env"
 import { useUserContext } from '../../../context/UserContext';
 import useAdminFetch from "../../../hooks/useAdminFetch";
+import { useNavigate } from "react-router-dom"
 
 
 
 const AdminProductCreate = () => {
   const user = useUserContext()
+  const nav = useNavigate()
+
   const [file, setFile] = useState();
   const [categories, setCategories] = useState([]);
   const [category, setCategory] = useState();
-  
+ 
+  let api = useAdminFetch()
 
   useEffect(() => {
     fetch(`${API_URL}/categories`)
@@ -25,47 +29,64 @@ const AdminProductCreate = () => {
 
  async function addCategory(e) {
     e.preventDefault();
-    
-    fetch(`${API_URL}/categories`, {
+   
+    let {response, data} = await api('/categories',{
       method: "POST",
+      mode: "cors",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({"name":category})
+    })
+
+    if (response.status === 201){
+      setCategories(categories.concat(data))
+      e.target.category.value = ''
+    }
+  } 
+
+
+  async function deleteCategory (id) {
+    let {response} = await api(`/categories/${id}`, {
+      method: "DELETE",
       mode: "cors",
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
         'Authorization': "Bearer " + user.authTokens.access
       },
-      body: JSON.stringify({"name":category})
     })
-    .then(response => response.json())
-    .then(data =>{
-      setCategories(categories.concat(data))
-    })
-    .catch(error => console.log('Error:', error)) 
 
+    if (response.status === 200) {
+      let c = categories.filter(c => c.id != id)
+      setCategories(c)
+    }
+  
   }
 
-function addProduct(data) {
-  fetch(`${API_URL}/products`, {
+ async function addProduct(productData) {
+  let {response, data} = await api('/products', {
     method: "POST",
     mode: "cors",
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
-      'Authorization': "Bearer " + user.authTokens.access
+      
     },
-    body: JSON.stringify(data)
+    body: JSON.stringify(productData)
   })
-  .then(response => response.json())
-  .then(data =>{
-    console.log(data)
-  })
-  .catch(error => console.log('Error:', error))
+
+  if (response.status === 201) {
+    nav(`/admin/productos/${data.id}/variants`)
+  }
+
 }
  
 async function handleSubmit(e) {
     e.preventDefault();
 
-    let data = {
+    let productData = {
       name: e.target.name.value,
       description: e.target.description.value,
       category_id: e.target.category_id.value,
@@ -76,17 +97,14 @@ async function handleSubmit(e) {
     const form= new FormData();
     form.append("image",file)
 
-    fetch(`${API_URL}/products/image`, {
+    let {response, data} = await api('/products/image',{
       method: "POST",
       body: form
     })
-    .then(response => response.json())
-    .then(res =>{
-      data.image_url=res.filemane
-      addProduct(data)
-    })
-    .catch(error => console.log('Error:', error))  
-
+    if (response.status === 201) {
+      productData.image_url= data.filemane
+      addProduct(productData)
+    }
   }
 
 
@@ -131,7 +149,7 @@ async function handleSubmit(e) {
           <button className='px-8 py-4 rounded-lg font-semibold bg-gray-400 secondary-color m-8'>Cancelar</button>
           <button type="submit" className='bg-[#AD7A06] px-8 py-4 rounded-lg font-semibold secondary-color m-8'>Guardar</button>
           </form>
-          {/* <Modal/> */}
+          <Modal/>
           </div>
           <div className='flex justify-center align-middle'>
           {file ? <img src={URL.createObjectURL(file)} className="w-64 h-64"/> : <img src="" className="w-64 h-64"/>}
@@ -162,7 +180,7 @@ async function handleSubmit(e) {
                     <td>{c.name}</td>
                     <td>
                       <button className='px-2 py-1 bg-yellow-400 rounded-sm mr-2'><MdEdit/></button>
-                      <button className='px-2 py-1 bg-red-700 rounded-sm'><MdDelete/></button>
+                      <button onClick={() => deleteCategory(c.id)} className='px-2 py-1 bg-red-700 rounded-sm'><MdDelete/></button>
   
                     </td>
                     </tr>
@@ -174,10 +192,6 @@ async function handleSubmit(e) {
         </div>  
       </section>
       
-      <section>
-        <h2>Lista de Variantes</h2>
-
-      </section>
     </div>
   )
 }

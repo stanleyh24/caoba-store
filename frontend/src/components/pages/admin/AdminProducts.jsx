@@ -24,7 +24,7 @@ const AdminProducts = () => {
             Agregar producto
           </Link>
 
-          <div>
+          <div className="mt-8">
             {data.map((product) => (
             
               <CardComponent 
@@ -33,7 +33,8 @@ const AdminProducts = () => {
                 title={product.name}
                 content={product.description}
               >
-                <Link to={`/productos/${product.id}`}>
+                
+                <Link to={`/admin/productos/${product.id}/variants`}>
                       <h3 className="text-xl font-semibold tracking-tight text-gray-900 mb-2 primary-color">
                           {product.name}
                       </h3>

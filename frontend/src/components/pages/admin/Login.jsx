@@ -11,7 +11,8 @@ const Login = () => {
   
   const [error, setError] = useState()
 
-  console.error(import.meta.env.VITE_API_URL)
+  console.log(`${API_URL}/auth/login`)
+  
   const handleSubmit = async (e) => {
     e.preventDefault()
     setError()

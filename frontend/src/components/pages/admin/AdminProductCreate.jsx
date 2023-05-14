@@ -1,6 +1,5 @@
 import {useState, useEffect} from 'react'
 import {MdDelete, MdEdit} from 'react-icons/md'
-import Modal from './Modal';
 import { API_URL } from "../../../constants/env"
 import { useUserContext } from '../../../context/UserContext';
 import useAdminFetch from "../../../hooks/useAdminFetch";
@@ -149,7 +148,6 @@ async function handleSubmit(e) {
           <button className='px-8 py-4 rounded-lg font-semibold bg-gray-400 secondary-color m-8'>Cancelar</button>
           <button type="submit" className='bg-[#AD7A06] px-8 py-4 rounded-lg font-semibold secondary-color m-8'>Guardar</button>
           </form>
-          <Modal/>
           </div>
           <div className='flex justify-center align-middle'>
           {file ? <img src={URL.createObjectURL(file)} className="w-64 h-64"/> : <img src="" className="w-64 h-64"/>}

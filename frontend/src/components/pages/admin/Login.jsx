@@ -4,12 +4,15 @@ import { useNavigate } from "react-router-dom"
 import {useUserContext} from "../../../context/UserContext"
 
 
+
 const Login = () => {
   const nav = useNavigate()
   const user = useUserContext()
   
   const [error, setError] = useState()
 
+  console.log(`${API_URL}/auth/login`)
+  
   const handleSubmit = async (e) => {
     e.preventDefault()
     setError()

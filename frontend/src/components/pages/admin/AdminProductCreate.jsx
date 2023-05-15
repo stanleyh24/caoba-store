@@ -53,7 +53,6 @@ const AdminProductCreate = () => {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
-        'Authorization': "Bearer " + user.authTokens.access
       },
     })
 

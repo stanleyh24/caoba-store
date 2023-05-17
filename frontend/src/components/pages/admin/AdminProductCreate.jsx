@@ -18,7 +18,7 @@ const AdminProductCreate = () => {
   let api = useAdminFetch()
 
   useEffect(() => {
-    fetch(`${API_URL}/categories`)
+    fetch(`${API_URL}/categories/`)
     .then(response => response.json())
     .then( data =>{
       setCategories(data)
@@ -29,7 +29,7 @@ const AdminProductCreate = () => {
  async function addCategory(e) {
     e.preventDefault();
    
-    let {response, data} = await api('/categories',{
+    let {response, data} = await api('/categories/',{
       method: "POST",
       mode: "cors",
       headers: {

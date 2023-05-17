@@ -130,7 +130,7 @@ const ShippingForm = ({setOrder, cart, setUserInfo}) => {
     Weight: i.weight
 
   }
-  await fetch(`${API_URL}/shiping`,{
+  await fetch(`${API_URL}/shiping/`,{
     method: "POST",
     body: JSON.stringify(bodyReq),
     headers: {"Content-type": "application/json; charset=UTF-8"}

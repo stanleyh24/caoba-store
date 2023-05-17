@@ -16,7 +16,7 @@ const AdminAddVariant = () => {
     const [showModal, setShowModal] = useState(false);
     
     async function getProduct(){
-      let {response, data} = await api(`/products/${params.id}`,{ 
+      let {response, data} = await api(`/products/${params?.id}`,{ 
         headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
@@ -28,7 +28,7 @@ const AdminAddVariant = () => {
     }
 
     async function getVariants(){
-      let {response, data} = await api(`/products/${params.id}/variants`,{ 
+      let {response, data} = await api(`/products/${params?.id}/variants`,{ 
         headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',

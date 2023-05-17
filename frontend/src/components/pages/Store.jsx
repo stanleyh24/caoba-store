@@ -6,7 +6,7 @@ import CardComponent from '../organisms/Card'
 import Loader from "../atoms/Loader"
 
 const Store = () => {
-  const { data, loading, error } = useFetch(`products`)
+  const { data, loading, error } = useFetch(`products/`,{mode:'cors'})
  
   if (loading) return <Loader />
   if (error) return <div>{error?.message}</div>

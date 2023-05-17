@@ -5,7 +5,9 @@ import { Link } from "react-router-dom";
 import CardComponent from "../organisms/Card";
 
 function Home() {
-  const { data, loading, error } = useFetch(`products`);
+  const { data, loading, error } = useFetch(`products/`,{
+    mode:"cors"
+  });
 
   return (
     <>

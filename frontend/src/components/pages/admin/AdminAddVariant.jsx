@@ -118,7 +118,7 @@ const AdminAddVariant = () => {
         packaging_type: e.target.packaging_type.value,
         price: e.target.price.value,
         weight:e.target.weight.value,
-        available: isChecked,
+        available: true,
         packaging_length: dimentions[0],
         packaging_width: dimentions[1],
         packaging_height: dimentions[2]
@@ -437,11 +437,10 @@ const AdminAddVariant = () => {
                       <label className="secondary-color text-sm font-bold mt-3">
                       <input
                         type="checkbox"
-                        id="topping"
-                        name="topping"
-                        value="Paneer"
+                        id="available"
+                        name="available"
+                        value="True"
                         checked={variantsSelected && variantsSelected.available}
-                        onChange={handleOnChange}
                         className="mr-2"
                         />
                         Disponible
